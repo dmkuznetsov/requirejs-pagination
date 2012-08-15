@@ -65,13 +65,6 @@ define([
                 finish = settings.count - 1;
             };
 
-            console.log( {
-                'current': settings.current
-                , 'count': settings.count
-//                , 'link': settings.link
-                , 'start': start
-                , 'finish': finish
-            } );
             $( settings.selector ).html( _.template( tplMain, {
                 'current': settings.current
                 , 'count': settings.count
