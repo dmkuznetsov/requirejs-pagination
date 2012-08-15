@@ -1,0 +1,37 @@
+<div class="pagination">
+	<ul>
+		<% if ( current != 0 ) { %>
+			<li><a href="<%= link + ( current - 1 ) %>" data-page="<%= ( current - 1 ) %>">«</a></li>
+		<% } else { %>
+			<li class="disabled"><a href="#">«</a></li>
+		<% }; %>
+
+		<% if ( start > 0 ) { %>
+			<li><a href="<%= link %>" data-page="0">1</a></li>
+			<% if ( start > 1 ) { %>
+				<li class="disabled"><a href="#">...</a></li>
+			<% }; %>
+		<% }; %>
+
+		<% for ( var i = start; i <= finish; i++ ) { %>
+			<% if ( i == current ) { %>
+				<li class="active"><a href="<%= link %><%= i %>" data-page="<%= i %>"><%= ( i + 1 ) %></a></li>
+			<% } else { %>
+				<li><a href="<%= link %><%= i %>" data-page="<%= i %>"><%= ( i + 1 ) %></a></li>
+			<% }; %>
+		<% }; %>
+
+		<% if ( finish < count - 1 ) { %>
+			<% if ( finish < count - 2 ) { %>
+				<li class="disabled"><a href="#">...</a></li>
+			<% }; %>
+			<li><a href="<%= link %><%= ( count - 1 ) %>" data-page="<%= ( count - 1 ) %>"><%= count %></a></li>
+		<% }; %>
+
+		<% if ( current == finish ) { %>
+			<li class="disabled"><a href="#">»</a></li>
+		<% } else { %>
+			<li><a href="<%= link %><%= ( current + 1 ) %>" data-page="<%= ( current + 1 ) %>">»</a></li>
+		<% }; %>
+	</ul>
+</div>

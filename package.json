@@ -1,0 +1,19 @@
+{
+    "name": "pagination"
+  , "version": "1.0.0"
+  , "description": "Simple pagination"
+  , "keywords": [ "requirejs", "plugin", "AMD loader", "pagination" ]
+  , "maintainers": [
+        {
+            "name": "Dmitry Kuznetsov"
+          , "email": "dev.kuznetsov@gmail.com"
+        }
+    ]
+  , "homepage": "https://github.com/dmkuznetsov/requirejs-pagination"
+  , "github": "https://github.com/dmkuznetsov/requirejs-pagination"
+  , "dependencies": {
+		"text": ">1.0.0"
+	    , "jquery": ">1.4.2"
+        , "require-css": ">1.0.0"
+  }
+}
