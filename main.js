@@ -1,5 +1,5 @@
 /**
- * @description repo/Pagination/main
+ * @description repo/pagination/main
  * settings {
  *  current: number of current page
  *  count: count of all pages
@@ -19,51 +19,51 @@ define([
         function init() {
             var start = 0, finish = 0;
 
-            if ( settings.count == undefined ) {
-                throw new Error( "Undefined variable \"count\"" );
-            };
-            if ( settings.link == undefined ) {
-                throw new Error( "Undefined variable \"link\"" );
-            };
-            if ( settings.selector == undefined ) {
-                throw new Error( "Undefined variable \"selector\"" );
-            };
+            if ( settings.count === undefined ) {
+                throw new Error( 'Undefined variable "count"' );
+            }
+            if ( settings.link === undefined ) {
+                throw new Error( 'Undefined variable "link"' );
+            }
+            if ( settings.selector === undefined ) {
+                throw new Error( 'Undefined variable "selector"' );
+            }
 
-            if ( settings.current == undefined ) {
+            if ( settings.current === undefined ) {
                 settings.current = 0;
-            };
-            if ( settings.distance == undefined ) {
+            }
+            if ( settings.distance === undefined ) {
                 settings.distance = 1;
-            };
+            }
 
-            settings.current = parseInt( settings.current );
-            settings.distance = parseInt( settings.distance );
-            settings.count = parseInt( settings.count );
+            settings.current = parseInt( settings.current, 10 );
+            settings.distance = parseInt( settings.distance, 10 );
+            settings.count = parseInt( settings.count, 10 );
 
-            if ( settings.count == 1 ) {
+            if ( settings.count <= 1 ) {
                 $( settings.selector ).html( '' );
                 return;
-            };
+            }
 
             if ( settings.current < 0 ) {
                 settings.current = 0;
-            };
+            }
 
             // Если переменная settings.current > количества страниц ссылаем на последнюю страничку
             if ( settings.current > settings.count - 1 ) {
                 settings.current = settings.count - 1;
-            };
+            }
 
             // С какого номера начинать вывод
             if ( settings.current > settings.distance ) {
                 start = settings.current - settings.distance;
-            };
+            }
 
             // Каким номером заканчивать вывод
             finish = settings.current + settings.distance;
             if ( finish > settings.count - 1 ) {
                 finish = settings.count - 1;
-            };
+            }
 
             $( settings.selector ).html( _.template( tplMain, {
                 'current': settings.current
@@ -72,7 +72,7 @@ define([
                 , 'start': start
                 , 'finish': finish
             } ) );
-        };
+        }
 
         init();
     };
